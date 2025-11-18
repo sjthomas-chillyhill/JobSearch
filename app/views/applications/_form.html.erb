@@ -1,0 +1,32 @@
+<%= form_with(model: application) do |form| %>
+  <% if application.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(application.errors.count, "error") %> prohibited this application from being saved:</h2>
+
+      <ul>
+        <% application.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :appliedOn, style: "display: block" %>
+    <%= form.date_field :appliedOn %>
+  </div>
+
+  <div>
+    <%= form.label :position, style: "display: block" %>
+    <%= form.text_field :position %>
+  </div>
+
+  <div>
+    <%= form.label :business_id, style: "display: block" %>
+    <%= form.text_field :business_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
