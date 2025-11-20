@@ -1,16 +1,35 @@
-<p style="color: green"><%= notice %></p>
 
-<% content_for :title, "Businesses" %>
+<div class="row">
+  <div class="col-xs-2">
+    <h2>Companies (<span><%= (@businesses && @businesses.count) || 0 %></span>)</h2>
+  </div>
 
-<h1>Businesses</h1>
-
-<div id="businesses">
-  <% @businesses.each do |business| %>
-    <%= render business %>
-    <p>
-      <%= link_to "Show this business", business %>
-    </p>
-  <% end %>
 </div>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <!-- p id="notice"><%= notice %></p -->
+    <% if @businesses and @businesses.size > 0 %>
 
-<%= link_to "New business", new_business_path %>
+      <div class="table-responsive">
+        <table class="table table-condensed table-hover">
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Url</th>
+            <th></th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <%= render @businesses %>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+    <br>
+  <%= link_to "New business", new_business_path %>
+   </div>
+</div>

@@ -1,22 +1,19 @@
-<div id="<%= dom_id business %>">
-  <p>
-    <strong>Name:</strong>
-    <%= business.name %>
-  </p>
-
-  <p>
-    <strong>Address:</strong>
-    <%= business.address %>
-  </p>
-
-  <p>
-    <strong>Email:</strong>
-    <%= business.email %>
-  </p>
-
-  <p>
-    <strong>Phone:</strong>
-    <%= business.phone %>
-  </p>
-
-</div>
+<tr>
+    <td><%=business.name%></td>
+    <td><%=business.address%></td>
+    <td><%=business.email%></td>
+    <td><%=business.phone %></td>
+    <td><%=business.url %></td>
+    <td>
+        <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="appActions" role="button" href="#">
+				Actions
+			</button>
+		<ul class="dropdown-menu" aria-labelledby="appActions">
+			<li><%= link_to 'Show', business, :class => "dropdown-item" %></li>
+			<li><%= link_to 'Edit', edit_business_path(business), :class => "dropdown-item" %></li>
+			<li><%= link_to 'Delete', business, data: {turbo_method: :delete,  turbo_confirm: 'Are you sure?' } , :class => "dropdown-item"%></li>
+		</ul>
+	</div>
+    </td>
+</tr>

@@ -1,9 +1,10 @@
 class ApplicationsController < ApplicationController
   before_action :set_application, only: %i[ show edit update destroy ]
+  before_action :set_enums
 
   # GET /applications or /applications.json
   def index
-    @applications = Application.all
+    @applications = Application.all.reverse_order
   end
 
   # GET /applications/1 or /applications/1.json
@@ -17,6 +18,11 @@ class ApplicationsController < ApplicationController
 
   # GET /applications/1/edit
   def edit
+  end
+
+  # Get/applications/week
+  def week
+    @weekly = Application.where(appliedOn: 1.week.ago..Date.today)
   end
 
   # POST /applications or /applications.json
@@ -65,6 +71,11 @@ class ApplicationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def application_params
-      params.expect(application: [ :appliedOn, :position, :business_id ])
+      params.expect(application: [ :appliedOn, :position, :business_id, :status, :file_updload ])
+    end
+
+    def set_enums
+      @statuses = Application.statuses
     end
 end
+

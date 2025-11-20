@@ -22,7 +22,9 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body style="margin: 30px;">
+  <%= link_to "Companies", businesses_path %> | <%= link_to "Applications", applications_path %> | <%= link_to "Weekly", weekly_path %>
+  <br>
     <%= yield %>
   </body>
 </html>

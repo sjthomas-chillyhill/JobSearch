@@ -1,32 +1,44 @@
 <%= form_with(model: application) do |form| %>
-  <% if application.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(application.errors.count, "error") %> prohibited this application from being saved:</h2>
+<% if application.errors.any? %>
+<div style="color: red">
+    <h2><%= pluralize(application.errors.count, "error") %> prohibited this application from being saved:</h2>
 
-      <ul>
+    <ul>
         <% application.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <li><%= error.full_message %></li>
         <% end %>
-      </ul>
+    </ul>
+</div>
+<% end %>
+<div class="form-group">
+
+    <%= form.label :business_id, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+    <%= form.collection_select :business_id, Business.all, :id, :name, prompt: true, class: "form-control" %><br>
     </div>
-  <% end %>
 
-  <div>
-    <%= form.label :appliedOn, style: "display: block" %>
-    <%= form.date_field :appliedOn %>
-  </div>
+    <%= form.label :position, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+    <%= form.text_field :position, class: "form-control"%>
+    </div>
 
-  <div>
-    <%= form.label :position, style: "display: block" %>
-    <%= form.text_field :position %>
-  </div>
+    <%= form.label :appliedOn, class: "col-sm-2 control-label", value: "Date" %>
+    <div class="col-sm-10">
+    <%= form.date_field :appliedOn, class: "form-control"%>
+    </div>
 
-  <div>
-    <%= form.label :business_id, style: "display: block" %>
-    <%= form.text_field :business_id %>
-  </div>
+    <%= form.label :status, class: "col-sm-2 control-label", value: "status" %>
+    <div class="col-sm-10">
+    <%= form.select :status, options_for_select(@statuses.collect { |s| [s[0].humanize, s[0]] }, selected: application.status), {}, class: "form-control" %>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-4">
+        <%= form.submit "#{@actionName} Application", class: "btn btn-primary" %>
+    </div>
+    <div class="col-sm-3">
+        <%= link_to "cancel", applications_path, :method => "get", class: "btn btn-default" %>
+    </div>
+</div>
 
-  <div>
-    <%= form.submit %>
-  </div>
 <% end %>

@@ -1,0 +1,11 @@
+<div>
+<% @weekly.each do |app| %>
+    <div style="width: 600px;margin-bottom: 10px;border-width:3px;border-style:solid;padding:20px;">
+        Date of Contact: <%= app.appliedOn %> Name of Business: <%= app.business.name %><br>
+        Address: <%= app.business.address %><br>
+        Phone: <%= app.business.phone %><br>
+        E-mail: <%= app.business.email %><br>
+        Position: <%= app.position %><br>
+    </div>
+<% end %>
+</div>

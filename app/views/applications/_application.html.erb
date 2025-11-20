@@ -1,17 +1,20 @@
-<div id="<%= dom_id application %>">
-  <p>
-    <strong>Appliedon:</strong>
-    <%= application.appliedOn %>
-  </p>
 
-  <p>
-    <strong>Position:</strong>
-    <%= application.position %>
-  </p>
 
-  <p>
-    <strong>Business:</strong>
-    <%= application.business_id %>
-  </p>
-
-</div>
+<tr>
+    <td><%=application.appliedOn%></td>
+    <td><%=application.business.name%></td>
+    <td><%=application.position%></td>
+    <td><%=application.status %> (<%=application.updated_at%>)</td>
+    <td>
+        <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="appActions" role="button" href="#">
+				Actions
+			</button>
+		<ul class="dropdown-menu" aria-labelledby="appActions">
+			<li><%= link_to 'Show', application, :class => "dropdown-item" %></li>
+			<li><%= link_to 'Edit', edit_application_path(application), :class => "dropdown-item" %></li>
+			<li><%= link_to 'Delete', application, data: {turbo_method: :delete,  turbo_confirm: 'Are you sure?' } , :class => "dropdown-item"%></li>
+		</ul>
+	</div>
+    </td>
+</tr>

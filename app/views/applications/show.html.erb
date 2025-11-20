@@ -1,10 +1,37 @@
-<p style="color: green"><%= notice %></p>
 
-<%= render @application %>
 
-<div>
-  <%= link_to "Edit this application", edit_application_path(@application) %> |
-  <%= link_to "Back to applications", applications_path %>
+<div class="row">
+  <div class="col-xs-2">
+    <h2><%= @application.position %></h2>
+  </div>
+  <div class="col-xs-2 col-xs-offset-2">
+	  <h2><%= link_to "Back", applications_path %></h2>
+  </div>
+</div>
 
-  <%= button_to "Destroy this application", @application, method: :delete %>
+<div class="row">
+	<div class="col-md-10 col-md-offset-1">
+	<!-- p id="notice"><%= notice %></p -->
+   
+	   <div class="table-responsive">
+			<table class="table table-condensed table-hover">
+			  <thead>
+			    <tr>
+			      <th>Date</th>
+				    <th>Company</th>
+			      <th>Position</th>
+			      <th>Status</th>
+     
+			      <th> </th>
+			    </tr>
+			  </thead>
+
+			  <tbody>
+			    <%= render @application %>
+		    </tbody>
+	    </table>
+    </div>
+
+    <br>
+  </div>
 </div>
