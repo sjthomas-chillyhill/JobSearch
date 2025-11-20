@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# ***This application is NOT configured to be secure. Only run locally.***
 
-Things you may want to cover:
+This application is a local only Ruby on Rails project for tracking job applications.
 
-* Ruby version
+- features
+-- minimal ui
+-- track businesses applied to
+-- track applications (positions) applied for
+-- weekly view of applications useful for displaying data needed for unemployment work search verification
+-- local SQLite database only
 
-* System dependencies
+# Running
+This application has only be tested in development environment.
+## Initialial setup
+- ensure you have Ruby on Rails (8+) installed and configured on you local system
+- run /bin/rails db:migrate
 
-* Configuration
+## stating the server
+- run /bin/rails server
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
