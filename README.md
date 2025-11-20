@@ -5,11 +5,11 @@
 This application is a local only Ruby on Rails project for tracking job applications.
 
 - features
--- minimal ui
--- track businesses applied to
--- track applications (positions) applied for
--- weekly view of applications useful for displaying data needed for unemployment work search verification
--- local SQLite database only
+    - minimal ui
+    - track businesses applied to
+    - track applications (positions) applied for
+    - weekly view of applications useful for displaying data needed for unemployment work search verification
+    - local SQLite database only
 
 # Running
 This application has only be tested in development environment.
