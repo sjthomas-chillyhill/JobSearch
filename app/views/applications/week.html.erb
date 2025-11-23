@@ -1,11 +1,13 @@
 <div>
 <% @weekly.each do |app| %>
     <div style="width: 600px;margin-bottom: 10px;border-width:3px;border-style:solid;padding:20px;">
-        <b>Date of Contact: </b> <u><%= app.appliedOn %></u> <b>Name of Business: </b><u><%= app.business.name %></u><br>
-        <b>Address: </b><u><%= app.business.address %></u><br>
-        <b>Phone: </b><u><%= app.business.phone %></u><br>
-        <b>E-mail: </b><u><%= app.business.email %></u><br>
-        <b>Position: </b><u><%= app.position %></u><br>
+        <b>Date of Contact: </b><span class="copyable"><%= app.appliedOn.strftime('%m/%d/%Y') %></span><br>
+        <b>Name of Business: </b><span class="copyable"><%= app.business.name %></span><br>
+        <b>Address: </b><span class="copyable"><%= app.business.address %></span><br>
+        <b>Phone: </b><span class="copyable"><%= app.business.phone %></span><br>
+        <b>E-mail: </b><span class="copyable"><%= app.business.email %></span><br>
+        <b>Position: </b><span class="copyable"><%= app.position %></span><br>
+        <b>Status: </b><%= app.status %>
     </div>
 <% end %>
 </div>
