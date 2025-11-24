@@ -22,7 +22,7 @@ class ApplicationsController < ApplicationController
 
   # Get/applications/week
   def week
-    @weekly = Application.where(appliedOn: 1.week.ago..Date.today)
+    @weekly = Application.where(appliedOn: 1.week.ago..Date.today).reverse_order
   end
 
   # POST /applications or /applications.json
