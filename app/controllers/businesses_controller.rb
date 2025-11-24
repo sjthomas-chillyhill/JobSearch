@@ -3,7 +3,7 @@ class BusinessesController < ApplicationController
 
   # GET /businesses or /businesses.json
   def index
-    @businesses = Business.all
+    @businesses = Business.all.order(name: :asc)
   end
 
   # GET /businesses/1 or /businesses/1.json
