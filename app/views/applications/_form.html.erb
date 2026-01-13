@@ -14,7 +14,7 @@
 
     <%= form.label :business_id, class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-    <%= form.collection_select :business_id, Business.all, :id, :name, prompt: true, class: "form-control" %><br>
+    <%= form.collection_select :business_id, Business.all.order(:name), :id, :name, prompt: true, class: "form-control" %><br>
     </div>
 
     <%= form.label :position, class: "col-sm-2 control-label" %>
