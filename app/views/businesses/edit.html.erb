@@ -1,12 +1,15 @@
 <% content_for :title, "Editing business" %>
 
-<h1>Editing business</h1>
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h1>Editing Business</h1>
+  <div>
+    <%= link_to "Show this business", @business, class: "btn btn-outline-primary me-2" %>
+    <%= link_to "Back to businesses", businesses_path, class: "btn btn-secondary" %>
+  </div>
+</div>
 
-<%= render "form", business: @business %>
-
-<br>
-
-<div>
-  <%= link_to "Show this business", @business %> |
-  <%= link_to "Back to businesses", businesses_path %>
+<div class="card">
+  <div class="card-body">
+    <%= render "form", business: @business %>
+  </div>
 </div>

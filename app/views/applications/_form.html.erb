@@ -1,7 +1,7 @@
 <%= form_with(model: application) do |form| %>
 <% if application.errors.any? %>
-<div style="color: red">
-    <h2><%= pluralize(application.errors.count, "error") %> prohibited this application from being saved:</h2>
+<div class="alert alert-danger">
+    <h4><%= pluralize(application.errors.count, "error") %> prohibited this application from being saved:</h4>
 
     <ul>
         <% application.errors.each do |error| %>
@@ -37,7 +37,7 @@
         <%= form.submit "#{@actionName} Application", class: "btn btn-primary" %>
     </div>
     <div class="col-sm-3">
-        <%= link_to "cancel", applications_path, :method => "get", class: "btn btn-default" %>
+        <%= link_to "cancel", applications_path, :method => "get", class: "btn btn-secondary" %>
     </div>
 </div>
 
