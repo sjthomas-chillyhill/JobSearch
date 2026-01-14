@@ -24,10 +24,25 @@
 
   </head>
 
-  <body style="margin: 30px;">
-  <%= link_to "Companies", businesses_path %> | <%= link_to "Applications", applications_path %> | <%= link_to "Weekly", weekly_path %>
-  <br>
-    <%= yield %>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <%= link_to "JobSearch", root_path, class: "navbar-brand" %>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item"><%= link_to "Companies", businesses_path, class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "Applications", applications_path, class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "Weekly", weekly_path, class: "nav-link" %></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container mt-4">
+      <%= yield %>
+    </div>
   </body>
   <script>
         let escapeHTML = (identity) => identity;
