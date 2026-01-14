@@ -13,7 +13,7 @@ class ApplicationsController < ApplicationController
 
   # GET /applications/new
   def new
-    @application = Application.new
+    @application = Application.new(business_id: params[:business_id])
   end
 
   # GET /applications/1/edit
@@ -78,4 +78,3 @@ class ApplicationsController < ApplicationController
       @statuses = Application.statuses
     end
 end
-
