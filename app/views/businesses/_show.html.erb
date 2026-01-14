@@ -1,31 +1,40 @@
-<div class="card">
-  <div class="card-body">
-    <div class="row">
-      <div class="col-md-6">
-        <h4>Business Information</h4>
-        <table class="table table-borderless">
-          <tr>
-            <td><strong>Name:</strong></td>
-            <td><%= @business.name %></td>
-          </tr>
-          <tr>
-            <td><strong>Address:</strong></td>
-            <td><%= @business.address %></td>
-          </tr>
-          <tr>
-            <td><strong>Email:</strong></td>
-            <td><%= mail_to @business.email, @business.email %></td>
-          </tr>
-          <tr>
-            <td><strong>Phone:</strong></td>
-            <td><%= @business.phone %></td>
-          </tr>
-          <tr>
-            <td><strong>Website:</strong></td>
-            <td><%= link_to @business.url, @business.url, target: "_blank", rel: "noopener" if @business.url.present? %></td>
-          </tr>
-        </table>
+<div class="business-details">
+    <h4>Business Information</h4>
+    
+    <div class="mb-3">
+      <div class="row">
+        <div class="col-sm-3"><strong>Name:</strong></div>
+        <div class="col-sm-9"><%= @business.name %></div>
       </div>
     </div>
-  </div>
+    
+    <div class="mb-3">
+      <div class="row">
+        <div class="col-sm-3"><strong>Address:</strong></div>
+        <div class="col-sm-9"><%= @business.address %></div>
+      </div>
+    </div>
+    
+    <div class="mb-3">
+      <div class="row">
+        <div class="col-sm-3"><strong>Email:</strong></div>
+        <div class="col-sm-9"><%= mail_to @business.email, @business.email %></div>
+      </div>
+    </div>
+    
+    <div class="mb-3">
+      <div class="row">
+        <div class="col-sm-3"><strong>Phone:</strong></div>
+        <div class="col-sm-9"><%= @business.phone %></div>
+      </div>
+    </div>
+    
+    <div class="mb-3">
+      <div class="row">
+        <div class="col-sm-3"><strong>Website:</strong></div>
+        <div class="col-sm-9">
+          <%= link_to @business.url, @business.url, target: "_blank", rel: "noopener" if @business.url.present? %>
+        </div>
+      </div>
+    </div>
 </div>
