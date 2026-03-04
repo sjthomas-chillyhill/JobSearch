@@ -22,7 +22,10 @@ class ApplicationsController < ApplicationController
 
   # Get/applications/week
   def week
-    @weekly = Application.where(appliedOn: 1.week.ago..Date.today).reverse_order
+    today = Date.today
+    sunday = today.prev_occurring(:sunday)
+
+    @weekly = Application.where(appliedOn: sunday..today).reverse_order
   end
 
   # POST /applications or /applications.json

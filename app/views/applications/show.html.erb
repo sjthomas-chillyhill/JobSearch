@@ -1,37 +1,35 @@
 
+<% content_for :title, "Application Details" %>
 
-<div class="row">
-  <div class="col-xs-2">
-    <h2><%= @application.position %></h2>
-  </div>
-  <div class="col-xs-2 col-xs-offset-2">
-	  <h2><%= link_to "Back", applications_path %></h2>
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h1><%= @application.position %></h1>
+  <div>
+    <%= link_to "Back", applications_path, class: "btn btn-secondary" %>
   </div>
 </div>
 
-<div class="row">
-	<div class="col-md-10 col-md-offset-1">
-	<!-- p id="notice"><%= notice %></p -->
+<div class="card">
+  <div class="card-body">
+    <% if notice %>
+      <div class="alert alert-success"><%= notice %></div>
+    <% end %>
    
-	   <div class="table-responsive">
-			<table class="table table-condensed table-hover">
-			  <thead>
-			    <tr>
-			      <th>Date</th>
-				    <th>Company</th>
-			      <th>Position</th>
-			      <th>Status</th>
-     
-			      <th> </th>
-			    </tr>
-			  </thead>
+    <div class="table-responsive">
+      <table class="table table-sm table-hover">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Company</th>
+            <th>Position</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
 
-			  <tbody>
-			    <%= render @application %>
-		    </tbody>
-	    </table>
+        <tbody>
+          <%= render @application %>
+        </tbody>
+      </table>
     </div>
-
-    <br>
   </div>
 </div>

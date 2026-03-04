@@ -1,13 +1,52 @@
-<div>
-<% @weekly.each do |app| %>
-    <div style="width: 600px;margin-bottom: 10px;border-width:3px;border-style:solid;padding:20px;">
-        <b>Date of Contact: </b><span class="copyable"><%= app.appliedOn.strftime('%m/%d/%Y') %></span><br>
-        <b>Position: </b><span class="copyable"><%= app.position %></span><br>
-        <b>Name of Business: </b><span class="copyable"><%= app.business.name %></span><br>
-        <b>Address: </b><span class="copyable"><%= app.business.address %></span><br>
-        <b>Phone: </b><span class="copyable"><%= app.business.phone %></span><br>
-        <b>E-mail: </b><span class="copyable"><%= app.business.email %></span><br>
-        <b>Status: </b><%= app.status %>
+<% content_for :title, "Weekly Applications" %>
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h1>Weekly Applications</h1>
+</div>
+
+<div class="mb-3">
+  <p class="text-muted">Click ⌘C to copy any field to clipboard</p>
+</div>
+
+<div class="row">
+  <% @weekly.each do |app| %>
+    <div class="col-lg-6 mb-3">
+      <div class="card border-3">
+        <div class="card-body">
+          <div class="row mb-2">
+            <div class="col-sm-4"><strong>Date:</strong></div>
+            <div class="col-sm-8"><span class="copyable"><%= app.appliedOn.strftime('%m/%d/%Y') %></span></div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-sm-4"><strong>Position:</strong></div>
+            <div class="col-sm-8"><span class="copyable"><%= app.position %></span></div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-sm-4"><strong>Company:</strong></div>
+            <div class="col-sm-8"><span class="copyable"><%= app.business.name %></span></div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-sm-4"><strong>Address:</strong></div>
+            <div class="col-sm-8"><span class="copyable"><%= app.business.address %></span></div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-sm-4"><strong>Phone:</strong></div>
+            <div class="col-sm-8"><span class="copyable"><%= app.business.phone %></span></div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-sm-4"><strong>Email:</strong></div>
+            <div class="col-sm-8"><span class="copyable"><%= app.business.email %></span></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4"><strong>Status:</strong></div>
+            <div class="col-sm-8">
+              <span class="badge bg-primary text-white">
+                <%= app.status %>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-<% end %>
+  <% end %>
 </div>
